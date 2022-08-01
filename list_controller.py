@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 def main ():
+    print('list_controller.exe was developed in MatCol by @CamiloQuiceno')
     print('************ Welcome to List Controller ************')
     operation_time = int(input('Input operation time (in minutes): '))
 
