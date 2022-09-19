@@ -10,7 +10,7 @@ def main ():
     print('*************************************************************')
     print('list_controller.exe was developed in MatCol by @CamiloQuiceno')
     print('*************************************************************')
-    print('************** Welcome to List Controller V1.0 **************')
+    print('************** Welcome to List Controller V2.0 **************')
     print('*************************************************************')
     print('*************************************************************')
     
@@ -28,8 +28,10 @@ def main ():
 
     if not os.path.exists('.\\imgs\\%s' % (today)):
         os.mkdir('.\\imgs\\%s' % (today))
+        os.mkdir('.\\imgs\\%s\\1' % (today))
+        os.mkdir('.\\imgs\\%s\\2' % (today))
         print('Folder: %s was created' % (today))
-        
+
     print('Your images will be stored at folder: %s' % (today))
 
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -47,7 +49,7 @@ def main ():
 
             el = driver.find_element(By.TAG_NAME, 'html')
             driver.execute_script("window.scrollTo(0, 200);")
-            driver.get_screenshot_as_file('.\\imgs\\%s\\%s.png' % (today,name_image))
+            driver.get_screenshot_as_file('.\\imgs\\%s\\1\\%s.png' % (today,name_image))
 
             print("Say Cheese, Image: %s" % (name_image))
 
@@ -56,11 +58,12 @@ def main ():
                 time.sleep(20)
                 el = driver.find_element(By.TAG_NAME, 'html')
                 driver.execute_script("window.scrollTo(0, 200);")
-                driver.get_screenshot_as_file('.\\imgs\\%s\\%s_secondpage.png' % (today,name_image)) -m"
+                driver.get_screenshot_as_file('.\\imgs\\%s\\2\\%s.png' % (today,name_image))
                 print("Say Cheese, Image page 2: %s" % (name_image))
 
             except:
                 print('Page 2 is not available')
+                time.sleep(20)
 
             driver.refresh()
 
