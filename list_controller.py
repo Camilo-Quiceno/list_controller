@@ -42,8 +42,8 @@ def main ():
             name_image = 'Date %s.%s' % (date.hour, date.minute)
 
             el = driver.find_element(By.TAG_NAME, 'html')
-            driver.execute_script("document.body.style.zoom='60%'")
-            el.screenshot('.\\imgs\\%s\\%s.png' % (today,name_image))
+            driver.execute_script("window.scrollTo(0, 200);")
+            driver.get_screenshot_as_file('.\\imgs\\%s\\%s.png' % (today,name_image))
             driver.refresh()
 
             print("Say Cheese, Image: %s" % (name_image))
