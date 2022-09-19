@@ -15,6 +15,8 @@ def main ():
     print('*************************************************************')
     
     WEBSITE = "https://m3s.materialise.net"
+    LINK_PAGE_TWO = '//*[@id="maincontent"]/ng-component/div/div[2]/div[2]/div[2]/form/div[2]/pagination/div/ul/li[4]/a'
+
     operation_time = int(input('Input operation time (in minutes): '))
 
     if not os.path.exists('.\\imgs'):
@@ -33,9 +35,11 @@ def main ():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get(WEBSITE)
 
+    time.sleep(20)
+
     for i in range(operation_time + 1):
 
-        time.sleep(40)
+        time.sleep(30)
 
         if i % 5 == 0:  
             date = datetime.datetime.now()
@@ -44,15 +48,21 @@ def main ():
             el = driver.find_element(By.TAG_NAME, 'html')
             driver.execute_script("window.scrollTo(0, 200);")
             driver.get_screenshot_as_file('.\\imgs\\%s\\%s.png' % (today,name_image))
-            driver.refresh()
 
             print("Say Cheese, Image: %s" % (name_image))
 
             try:
-                LINK_PAGE_TWO = '//*[@id="maincontent"]/ng-component/div/div[2]/div[2]/div[2]/form/div[2]/pagination/div/ul/li[4]/a'
                 driver.find_element(By.XPATH, LINK_PAGE_TWO).click()
+                time.sleep(20)
+                el = driver.find_element(By.TAG_NAME, 'html')
+                driver.execute_script("window.scrollTo(0, 200);")
+                driver.get_screenshot_as_file('.\\imgs\\%s\\%s_secondpage.png' % (today,name_image))
+                print("Say Cheese, Image page 2: %s" % (name_image))
+
             except:
                 print('Page 2 is not available')
+
+            driver.refresh()
 
         else:
             driver.execute_script("window.scrollTo(0, 5000);")
