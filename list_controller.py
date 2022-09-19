@@ -48,6 +48,12 @@ def main ():
 
             print("Say Cheese, Image: %s" % (name_image))
 
+            try:
+                LINK_PAGE_TWO = '//*[@id="maincontent"]/ng-component/div/div[2]/div[2]/div[2]/form/div[2]/pagination/div/ul/li[4]/a'
+                driver.find_element(By.XPATH, LINK_PAGE_TWO).click()
+            except:
+                print('Page 2 is not available')
+
         else:
             driver.execute_script("window.scrollTo(0, 5000);")
             driver.find_element(By.TAG_NAME, 'html').click()
