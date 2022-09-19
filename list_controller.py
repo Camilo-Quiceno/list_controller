@@ -56,7 +56,7 @@ def main ():
                 time.sleep(20)
                 el = driver.find_element(By.TAG_NAME, 'html')
                 driver.execute_script("window.scrollTo(0, 200);")
-                driver.get_screenshot_as_file('.\\imgs\\%s\\%s_secondpage.png' % (today,name_image))
+                driver.get_screenshot_as_file('.\\imgs\\%s\\%s_secondpage.png' % (today,name_image)) -m"
                 print("Say Cheese, Image page 2: %s" % (name_image))
 
             except:
