@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def main ():
     print('*************************************************************')
-    print('list_controller.exe was developed in MatCol by @CamiloQuiceno')
+    print('list_controller.exe was developed in MatCol by @Camilo.Quiceno')
     print('*************************************************************')
     print('************** Welcome to List Controller V2.0 **************')
     print('*************************************************************')
@@ -44,6 +44,7 @@ def main ():
         time.sleep(30)
 
         if i % 5 == 0:  
+
             date = datetime.datetime.now()
             name_image = 'Date %s.%s' % (date.hour, date.minute)
 
